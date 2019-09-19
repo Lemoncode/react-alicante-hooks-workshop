@@ -1,14 +1,6 @@
-# Challenge 1
+# Challenge 1 - 00-start
 
-## Starting material:
-
-In our application we have need to load tons collections from servers (usually lookups), and the server rest-api comes from a third party, fork the sake of performance:
-
-- We don't want to load all the enums at application startup.
-- We dont' want to load the enum on every request.
-- We want to be lazy, load it one time and keep it globally in context
-
-## Startup
+## Steps
 
 - Copy `00-start` project folder.
 - Run `npm install`.
