@@ -11,10 +11,12 @@ export const LookupProvider = props => {
   const [userCollection, setUserCollection] = React.useState([]);
 
   const onLoadLookups = React.useCallback(() => {
-    fetchUserLookups().then(users => {
-      setUserCollection(users);
-    });
-  }, []);
+    if (userCollection.length === 0) {
+      fetchUserLookups().then(users => {
+        setUserCollection(users);
+      });
+    }
+  }, [userCollection]);
 
   return (
     <LookupContext.Provider
