@@ -4,4 +4,5 @@ export const fetchUserLookups = () =>
     .then(data => {
       console.log('User lookups fetched from server');
       console.log({ data });
+      return data;
     });
