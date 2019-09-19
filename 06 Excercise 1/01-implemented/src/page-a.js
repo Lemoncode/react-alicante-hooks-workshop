@@ -1,15 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { fetchUserLookups } from './api';
+import { LookupContext } from './lookup.context';
 
 export const PageA = () => {
-  const [userCollection, setUserCollection] = React.useState([]);
-
-  const onLoadLookups = React.useCallback(() => {
-    fetchUserLookups().then(users => {
-      setUserCollection(users);
-    });
-  }, []);
+  const { userCollection, onLoadLookups } = React.useContext(LookupContext);
 
   return (
     <>
@@ -20,7 +14,7 @@ export const PageA = () => {
         ))}
       </ul>
       <button onClick={onLoadLookups}>Load lookups</button>
-      <Link className='link-button' to='/page-b'>
+      <Link className="link-button" to="/page-b">
         Navigate Page B &#8594;
       </Link>
     </>

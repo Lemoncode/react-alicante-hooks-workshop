@@ -20,7 +20,7 @@ export const PageB = () => {
         ))}
       </ul>
       <button onClick={onLoadLookups}>Load lookups</button>
-      <Link className='link-button' to='/page-a'>
+      <Link className="link-button" to="/page-a">
         &#8592; Navigate Page A
       </Link>
     </>

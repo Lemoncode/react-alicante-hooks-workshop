@@ -8,7 +8,7 @@ export const Router = () => {
     <HashRouter>
       <Switch>
         <Route exact={true} path={['/', '/page-a']} component={PageA} />
-        <Route path='/page-b' component={PageB} />
+        <Route path="/page-b" component={PageB} />
       </Switch>
     </HashRouter>
   );
