@@ -5,11 +5,11 @@ import { fetchUserLookups } from './api';
 export const PageB = () => {
   const [userCollection, setUserCollection] = React.useState([]);
 
-  const onLoadLookups = React.useCallback(() => {
+  const onLoadLookups = () => {
     fetchUserLookups().then(users => {
       setUserCollection(users);
     });
-  }, []);
+  };
 
   return (
     <>
