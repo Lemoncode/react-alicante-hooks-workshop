@@ -2,7 +2,7 @@
 
 There are situations where we just fire an AJAX request and we cannot cancel it, it can happen
 that the users navigates away from a given page (or the component making the ajax call
-gets unmounted) before the promise gets resolved, What happens when the promise gets resolved? 
+gets unmounted) before the promise gets resolved, What happens when the promise gets resolved?
 We get an error, how can we avoid this? tracking when a component gets mounted and unmounted,
 let's check how can we do this using hooks.
 
@@ -34,7 +34,7 @@ export const MyComponent = () => {
       </button>
     </>
   );
-}
+};
 
 export const MyChildComponent = () => {
   const [filter, setFilter] = React.useState("");
@@ -54,7 +54,7 @@ export const MyChildComponent = () => {
 ```
 
 - Now we want to fire an ajax request every time user types on the filter input (we will add
-some latency).
+  some latency).
 
 _./src/demo.js_
 
@@ -77,7 +77,7 @@ export const MyChildComponent = () => {
 ```
 
 - If we run the sample, type a letter on the input and quickly hit on the toggle child component
-visibility button an error will popup in the console log.
+  visibility button an error will popup in the console log.
 
 _Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function._
 
@@ -113,8 +113,8 @@ Then in our _fetch_ call we can resolve it in the following way:
     }, 2500);
   }, [filter]);
 ```
-> **Excercise:** we could encapsulate the fetching plus the setSafeUserCollection in a hook,
-why not giving a try? ;)
+
+> **Excercise:** we could encapsulate the fetching plus the setSafeUserCollection in a hook, why not giving a try? ;)
 
 # About Basefactor + Lemoncode
 
