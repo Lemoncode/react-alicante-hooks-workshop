@@ -12,28 +12,27 @@ _./src/lookup.context.js_
 
 ```javascript
 import React from 'react';
-import { fetchUserLookups } from './api';
+import * as api from './api';
 
 export const LookupContext = React.createContext({
-  userCollection: [],
-  onLoadLookups: () =>
+  fetchUserLookups: () =>
     console.warn('You need to use LookupProvider in your app'),
 });
 
 export const LookupProvider = props => {
   const [userCollection, setUserCollection] = React.useState([]);
 
-  const onLoadLookups = React.useCallback(() => {
-    fetchUserLookups().then(users => {
+  const fetchUserLookups = React.useCallback(() => {
+    return api.fetchUserLookups().then(users => {
       setUserCollection(users);
+      return users;
     });
   }, []);
 
   return (
     <LookupContext.Provider
       value={{
-        userCollection,
-        onLoadLookups,
+        fetchUserLookups,
       }}
     >
       {props.children}
@@ -77,14 +76,8 @@ import { Link } from 'react-router-dom';
 + import { LookupContext } from './lookup.context';
 
 export const PageA = () => {
-- const [userCollection, setUserCollection] = React.useState([]);
-+ const { userCollection, onLoadLookups } = React.useContext(LookupContext);
-
-- const onLoadLookups = React.useCallback(() => {
--   fetchUserLookups().then(users => {
--     setUserCollection(users);
--   });
-- }, []);
+  const [userCollection, setUserCollection] = React.useState([]);
++ const { fetchUserLookups } = React.useContext(LookupContext);
 ...
 
 ```
@@ -100,14 +93,8 @@ import { Link } from 'react-router-dom';
 + import { LookupContext } from './lookup.context';
 
 export const PageB = () => {
-- const [userCollection, setUserCollection] = React.useState([]);
-+ const { userCollection, onLoadLookups } = React.useContext(LookupContext);
-
-- const onLoadLookups = React.useCallback(() => {
--   fetchUserLookups().then(users => {
--     setUserCollection(users);
--   });
-- }, []);
+  const [userCollection, setUserCollection] = React.useState([]);
++ const { fetchUserLookups } = React.useContext(LookupContext);
 ...
 ```
 
@@ -120,12 +107,17 @@ _./src/lookup.context.js_
 export const LookupProvider = props => {
   const [userCollection, setUserCollection] = React.useState([]);
 
-  const onLoadLookups = React.useCallback(() => {
-+   if (userCollection.length === 0) {
-      fetchUserLookups().then(users => {
-        setUserCollection(users);
-      });
-+   }
+  const fetchUserLookups = React.useCallback(() => {
+-   return api.fetchUserLookups().then(users => {
+-     setUserCollection(users);
+-     return users;
+-   });
++   return userCollection.length > 0
++     ? Promise.resolve(userCollection)
++     : api.fetchUserLookups().then(users => {
++         setUserCollection(users);
++         return users;
++       });
 - }, []);
 + }, [userCollection]);
 ...

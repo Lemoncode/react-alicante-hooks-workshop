@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import { LookupContext } from './lookup.context';
 
 export const PageA = () => {
-  const { userCollection, onLoadLookups } = React.useContext(LookupContext);
+  const [userCollection, setUserCollection] = React.useState([]);
+  const { fetchUserLookups } = React.useContext(LookupContext);
+
+  const onLoadLookups = () => {
+    fetchUserLookups().then(users => {
+      setUserCollection(users);
+    });
+  };
 
   return (
     <>
