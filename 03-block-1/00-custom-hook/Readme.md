@@ -153,6 +153,17 @@ export const MyComponent = () => {
 > which circumstances (e.g. just create a custom hook to load the list of
 > names without taking into account the filter).
 
+- If we add `loadUsers` to dependencies array as linter suggest:
+
+```diff
+  React.useEffect(() => {
+    loadUsers();
+- }, [filter]);
++ }, [filter, loadUsers]);
+```
+
+- It will not stop fetching to typicode server. We will learn how to resolve it.
+
 # About Basefactor + Lemoncode
 
 We are an innovating team of Javascript experts, passionate about turning your ideas into robust products.

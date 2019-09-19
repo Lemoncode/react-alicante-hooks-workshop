@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
+import { useDebounce } from './use-debounce';
 
 const useUserCollection = () => {
-  const [filter, setFilter] = React.useState("");
+  const [filter, setFilter] = React.useState('');
   const [userCollection, setUserCollection] = React.useState([]);
 
   // Load full list when the component gets mounted and filter gets updated
@@ -16,10 +17,15 @@ const useUserCollection = () => {
 
 export const MyComponent = () => {
   const { userCollection, loadUsers, filter, setFilter } = useUserCollection();
+  const debouncedSetFilter = useDebounce(setFilter, 500);
 
   React.useEffect(() => {
-    loadUsers();
-  }, [filter, loadUsers]);
+    if (debouncedSetFilter) {
+      loadUsers();
+    } else {
+      loadUsers();
+    }
+  }, []);
 
   return (
     <div>

@@ -12,8 +12,6 @@ A. You can try to build something like that by yourself (nice excercise).
 
 B. Read from blog post and check if the solutions was similar like your proposal: [https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci](https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci)
 
-  - Just add a state on the custom hook you have created to check if the lookup has been already loaded, and depending on the result just return the promise resolved with the data if not fire the async request.
-
 C. Use an already made hook: [https://github.com/xnimorz/use-debounce](https://github.com/xnimorz/use-debounce)
 
 # About Basefactor + Lemoncode
