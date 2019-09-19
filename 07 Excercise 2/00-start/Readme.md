@@ -1,12 +1,6 @@
-# Challenge 2
+# Challenge 2 - 00-start
 
-## Starting material:
-
-In a previous example, we just saw how to filter a list of users server from a rest-api listening to an input onChange event.
-
-This is not optimal, shouldn't it be cool to wait a bit til the user is not typing for some milisseconds in order to fire the server request?
-
-## Startup
+## Steps
 
 - Copy `00-start` project folder.
 - Run `npm install`.
