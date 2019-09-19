@@ -42,7 +42,6 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
 ```
 
-
 - Let's create an edge case, we will use _useEffect_. Inside we will have to asynchronous calls,
   the first one should setup a _seconds_ state to 1 (it will be executed after 1 seconds), then
   a second async call will be executed after 2 seconds of time elapse, in theory it should
@@ -136,6 +135,16 @@ _./src/demo.js_
 -  }, []);
 +  }, [seconds]);
 ```
+
+All this excercise was great to know a bit about issues and edge
+cases we can find when using hooks, but let's apply to real life
+issues, let's cover the following case: we have a rich gmail client
+running, we want to detect whether the user has an slow internet
+connection to redirect him to the lite html client (less
+functionallity but cover basic with decent speed on poor
+connections).
+
+https://codesandbox.io/s/ajax-checking-usestate-hx02u
 
 # About Basefactor + Lemoncode
 
