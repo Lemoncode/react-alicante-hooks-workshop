@@ -6,11 +6,11 @@ export const PageB = () => {
   const [userCollection, setUserCollection] = React.useState([]);
   const { fetchUserLookups } = React.useContext(LookupContext);
 
-  const onLoadLookups = React.useCallback(() => {
+  const onLoadLookups = () => {
     fetchUserLookups().then(users => {
       setUserCollection(users);
     });
-  }, []);
+  };
 
   return (
     <>
