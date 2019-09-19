@@ -5,11 +5,11 @@ import { fetchUserLookups } from './api';
 export const PageA = () => {
   const [userCollection, setUserCollection] = React.useState([]);
 
-  const onLoadLookups = React.useCallback(() => {
+  const onLoadLookups = () => {
     fetchUserLookups().then(users => {
       setUserCollection(users);
     });
-  }, []);
+  };
 
   return (
     <>
@@ -20,7 +20,7 @@ export const PageA = () => {
         ))}
       </ul>
       <button onClick={onLoadLookups}>Load lookups</button>
-      <Link className='link-button' to='/page-b'>
+      <Link className="link-button" to="/page-b">
         Navigate Page B &#8594;
       </Link>
     </>
