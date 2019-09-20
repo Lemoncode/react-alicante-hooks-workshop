@@ -6,8 +6,8 @@ const useUserCollection = () => {
   const [userCollection, setUserCollection] = React.useState([]);
 
   // Load full list when the component gets mounted and filter gets updated
-  const loadUsers = () => {
-    fetch(`https://jsonplaceholder.typicode.com/users?name_like=${filter}`)
+  const loadUsers = userName => {
+    fetch(`https://jsonplaceholder.typicode.com/users?name_like=${userName}`)
       .then(response => response.json())
       .then(json => setUserCollection(json));
   };
@@ -17,15 +17,15 @@ const useUserCollection = () => {
 
 export const MyComponent = () => {
   const { userCollection, loadUsers, filter, setFilter } = useUserCollection();
-  const debouncedSetFilter = useDebounce(setFilter, 500);
+  const debouncedFilter = useDebounce(filter, 500);
 
   React.useEffect(() => {
-    if (debouncedSetFilter) {
-      loadUsers();
+    if (debouncedFilter) {
+      loadUsers(debouncedFilter);
     } else {
-      loadUsers();
+      loadUsers(filter);
     }
-  }, []);
+  }, [debouncedFilter]);
 
   return (
     <div>
