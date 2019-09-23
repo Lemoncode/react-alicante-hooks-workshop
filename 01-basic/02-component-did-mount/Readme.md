@@ -2,7 +2,7 @@
 
 Reading from the state and updating it on a functional component is something great,
 but we are missing another important part of class components, what about
-lifecycle event handlers like _componentDidMount_? How can we hook to an event
+lifecycle event handlers like _componentDidMount_? How can we listen to an event
 like that in a functional component? _React.useEffect_ is your friend.
 
 # Steps
@@ -94,7 +94,7 @@ export const MyComponent = () => {
   use here _fetch_ or any other similar approach to make an ajax request.
 
 - What happens if we remove the _[]_ on the useEffect? The code in this effect will be
-  triggered when the function component is instantiated and when any render is goin to be triggered.
+  triggered when the function component is instantiated and when any render is going to be triggered.
 
 # About Basefactor + Lemoncode
 

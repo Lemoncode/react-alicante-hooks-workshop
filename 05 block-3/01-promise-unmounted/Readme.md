@@ -114,6 +114,21 @@ Then in our _fetch_ call we can resolve it in the following way:
   }, [filter]);
 ```
 
+Note down: we are simulating an ajax request using SetTimeout, ... if we are using a setTimeout
+we have an easier way to cancel the request.
+
+```javascript
+React.useEffect(() => {
+  const t = setTimeout(() => {
+    fetch(`https://jsonplaceholder.typicode.com/users?name_like=${filter}`)
+      .then(response => response.json())
+      .then(json => setUserCollection(json));
+  }, 2500);
+
+  return () => clearTimeout(t);
+}, [filter]);
+```
+
 > **Excercise:** we could encapsulate the fetching plus the setSafeUserCollection in a hook, why not giving a try? ;)
 
 # About Basefactor + Lemoncode

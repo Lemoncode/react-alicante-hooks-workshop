@@ -51,6 +51,8 @@ export const MyComponent = () => {
 
 A. Encapsulating as well the _UseEffect_
 
+> Create react app compiler forces to create hooks using __function__ javascript keyword
+
 _./src/demo.js_
 
 ```diff
