@@ -136,7 +136,7 @@ _./src/demo.js_
 +  }, [seconds]);
 ```
 
-All this excercise was great to know a bit about issues and edge
+All this exercise was great to know a bit about issues and edge
 cases we can find when using hooks, but let's apply to real life
 issues, let's cover the following case: we have a rich gmail client
 running, we want to detect whether the user has an slow internet

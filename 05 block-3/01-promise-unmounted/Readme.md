@@ -129,7 +129,7 @@ React.useEffect(() => {
 }, [filter]);
 ```
 
-> **Excercise:** we could encapsulate the fetching plus the setSafeUserCollection in a hook, why not giving a try? ;)
+> **Exercise:** we could encapsulate the fetching plus the setSafeUserCollection in a hook, why not giving a try? ;)
 
 # About Basefactor + Lemoncode
 

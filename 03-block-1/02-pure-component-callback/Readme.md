@@ -98,7 +98,7 @@ const ResetValue = React.memo(props => {
 
 - Now if we run the sample we can check the expected behavior.
 
-> Excercise: what if we group _username_ and _lastname_ in an object (single useState) and use the spread operator to assign the object, would that work?
+> Exercise: what if we group _username_ and _lastname_ in an object (single useState) and use the spread operator to assign the object, would that work?
 > check why :-)
 
 # About Basefactor + Lemoncode

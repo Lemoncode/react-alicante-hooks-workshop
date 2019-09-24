@@ -8,7 +8,7 @@
 
 ## Tips
 
-A. You can try to build something like that by yourself (nice excercise).
+A. You can try to build something like that by yourself (nice exercise).
 
 B. Read from blog post and check if the solutions was similar like your proposal: [https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci](https://dev.to/gabe_ragland/debouncing-with-react-hooks-jci)
 

@@ -7,7 +7,7 @@ in the second argument, instead of an empty array, the field name used to trigge
 the call.
 
 > Note down: ideally we should implement some kind of debounce behavior, we will
-> implement this as an excercise later on.
+> implement this as an exercise later on.
 
 # Steps
 
