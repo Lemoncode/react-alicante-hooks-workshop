@@ -19,7 +19,7 @@ export const MyComponent = () => {
 
   React.useEffect(() => {
     loadUsers();
-  }, [filter, loadUsers]);
+  }, [filter]);
 
   return (
     <div>
