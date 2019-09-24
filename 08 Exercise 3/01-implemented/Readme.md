@@ -6,7 +6,46 @@
 
 - Run `npm install`.
 
-- 
+- Create `useMediaQuery` hook:
+
+_./src/use-media-query.js_
+
+```javascript
+import React from 'react';
+
+export const useMediaQuery = mediaQuery => {
+  const [matches, setMatches] = React.useState(window.matchMedia(mediaQuery));
+
+  React.useEffect(() => {
+    const listener = event => setMatches(event.matches);
+    window.matchMedia(mediaQuery).addListener(listener);
+
+    return () => {
+      window.matchMedia(mediaQuery).removeListener(listener);
+    };
+  }, [mediaQuery]);
+
+  return matches;
+};
+
+```
+
+- Use it:
+
+_./src/demo.js_
+
+```diff
+import React from 'react';
+import { Header } from './components';
++ import { useMediaQuery } from './use-media-query';
+
+export const MyComponent = () => {
++ const isTablet = useMediaQuery('(max-width: 1024px)');
+- return <Header showMenu={true} />;
++ return <Header showMenu={isTablet} />;
+};
+
+```
 
 # About Basefactor + Lemoncode
 
