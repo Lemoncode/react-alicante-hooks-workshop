@@ -1,0 +1,17 @@
+.app {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.link-button {
+  margin-top: 5rem;
+  text-decoration: none;
+}
