@@ -20,11 +20,7 @@ export const MyComponent = () => {
   const debouncedFilter = useDebounce(filter, 500);
 
   React.useEffect(() => {
-    if (debouncedFilter) {
-      loadUsers(debouncedFilter);
-    } else {
-      loadUsers(filter);
-    }
+    loadUsers(debouncedFilter);
   }, [debouncedFilter]);
 
   return (
