@@ -30,7 +30,7 @@ export const MyComponent = () => {
   return (
     <>
       <h3>
-        {userInfo.username} {userInfo.lastname}
+        {userInfo.name} {userInfo.lastname}
       </h3>
       <EditUsername
         name={userInfo.name}
