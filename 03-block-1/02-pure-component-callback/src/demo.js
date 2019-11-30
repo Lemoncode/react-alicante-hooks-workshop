@@ -25,5 +25,5 @@ const ResetValue = React.memo(props => {
     "Hey I'm only rendered the first time, check React.memo + callback"
   );
 
-  return <button onClick={props.onReset}>Reset value</button>;
+  return <button onClick={props.onReset}>props.children</button>;
 });

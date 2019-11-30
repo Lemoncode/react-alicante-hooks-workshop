@@ -63,11 +63,7 @@ export const MyComponent = () => {
 -   loadUsers();
 - }, [filter]);
 + React.useEffect(() => {
-+   if (debouncedFilter) {
-+     loadUsers(debouncedFilter);
-+   } else {
-+     loadUsers(filter);
-+   }
++   loadUsers(debouncedFilter);
 + }, [debouncedFilter]);
 ...
 ```
